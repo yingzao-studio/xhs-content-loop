@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "project_id": "DEMO-CUP",
+  "topic": "通勤杯尺寸核对（虚构演示）",
+  "audience": "准备挑选通勤杯的人",
+  "goal": "选购检查",
+  "authorization": "draft_only",
+  "confirmed_answers": {
+    "experience": "没有真实使用体验；仅演示设定"
+  },
+  "questions": [],
+  "assets": [
+    {
+      "asset_id": "A001",
+      "source": "examples/public-demo.md#演示输入",
+      "type": "text",
+      "scope": "全文",
+      "authorization": "原创演示"
+    },
+    {
+      "asset_id": "A002",
+      "source": "examples/public-demo.md#演示输入",
+      "type": "text",
+      "scope": "全文",
+      "authorization": "原创演示"
+    },
+    {
+      "asset_id": "A003",
+      "source": "examples/public-demo.md#演示输入",
+      "type": "text",
+      "scope": "全文",
+      "authorization": "原创演示"
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "E001",
+      "asset_id": "A001",
+      "kind": "demo",
+      "access_status": "provided_text",
+      "metrics": null
+    },
+    {
+      "evidence_id": "E002",
+      "asset_id": "A002",
+      "kind": "demo",
+      "access_status": "provided_text",
+      "metrics": null
+    },
+    {
+      "evidence_id": "E003",
+      "asset_id": "A003",
+      "kind": "demo",
+      "access_status": "provided_text",
+      "metrics": null
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "F001",
+      "fact": "杯架约7厘米（虚构）",
+      "evidence_ids": [
+        "E001"
+      ],
+      "allowed": "仅作为演示数字",
+      "forbidden": "不得冒充真实用户测量"
+    },
+    {
+      "fact_id": "F002",
+      "fact": "候选杯身8厘米（虚构）",
+      "evidence_ids": [
+        "E002"
+      ],
+      "allowed": "仅作演示尺寸核对",
+      "forbidden": "不得声称实测不适配"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "N001",
+      "version": 1,
+      "fact_ids": [
+        "F001",
+        "F002"
+      ],
+      "asset_ids": [
+        "A001",
+        "A002"
+      ],
+      "evidence_ids": [
+        "E001",
+        "E002",
+        "E003"
+      ],
+      "content_status": "drafted",
+      "fact_review": "演示",
+      "image_status": "assets_pending",
+      "publication_status": "not_authorized",
+      "metrics_status": "no_data"
+    }
+  ],
+  "next_action": "补真实资料后核对，不发布"
+}

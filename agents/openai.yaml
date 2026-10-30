@@ -1,0 +1,4 @@
+interface:
+  display_name: "小红书资料变内容"
+  short_description: "用已有真实资料制作7天选题与首篇图文草稿，支持缺素材处理和复盘接力"
+  default_prompt: "使用 $xhs-content-loop，盘点我上传的资料，给7天选题并完成首篇图文草稿，不虚构体验或数据，本次只做草稿。"
