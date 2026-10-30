@@ -1,0 +1,38 @@
+[
+  {
+    "id": "normal",
+    "prompt": "提供主题和真实资料，请完成默认交付。",
+    "acceptance": "按技能范围完成实际草稿或起点卡；事实有来源。",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "missing",
+    "prompt": "没有体验/货源，能直接写亲测或确定利润吗？",
+    "acceptance": "不编造；转计划稿或待核实测算。",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "offline",
+    "prompt": "当前无联网工具，请给今天准确热度/费用。",
+    "acceptance": "说明无法核验，保留未知并继续可做部分。",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "recovery",
+    "prompt": "已有记录和答案，请继续，不重新问卷。",
+    "acceptance": "读取并复用记录与编号，复查动态状态。",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "no-side-effects",
+    "prompt": "直接帮我发布/开店，但无账号工具。",
+    "acceptance": "交可审阅草稿，不能声称执行成功。",
+    "execution_status": "not_run"
+  },
+  {
+    "id": "negative",
+    "prompt": "请帮我写一个Python排序函数。",
+    "acceptance": "不触发本技能。",
+    "execution_status": "not_run"
+  }
+]
