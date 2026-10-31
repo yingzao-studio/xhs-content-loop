@@ -1,5 +1,6 @@
-## 豆包与DeepSeek接入更新（2.1.2）
+## 豆包、DeepSeek与ChatGPT接入更新（2.1.3）
 
+- ChatGPT原生技能：仅在账号具备Skills上传入口时使用目录包；官方规则已核对，未在你的账号安装或扫描。
 - 普通聊天：使用[完整单文件](skill.txt)，或[启动提示词](chat/start.txt)；先验证模型确实读到所需正文。
 - DeepSeek Harness：同名文件夹的SKILL.md入口与references，按官方的一层目录发现规则放置。
 - 豆包原生技能导入：本次缺少官方格式和客户端实测依据，保留标准包候选，不标为已验证。
@@ -17,7 +18,7 @@
 公开下载不代表官方目录收录；模型能否读附件、联网或自动读取链接取决于实际环境。
 <!-- PUBLIC-ACCESS:END -->
 
-# 小红书资料变内容 · v2.1.2
+# 小红书资料变内容 · v2.1.3
 
 把已有文字、图片与视频资料整理为7天选题，并完成首篇图文草稿。 不虚构经历和数据，不保证流量或成交。默认只制作草稿。
 
@@ -61,7 +62,7 @@ xhs-content-loop负责素材、排期与进度；xhs-viral-replica负责参考�
 
 ## 标准、维护与许可
 
-版本2.1.2。采用[MIT许可证](LICENSE)，第三方与历史素材的范围见[许可说明](THIRD_PARTY.md)。[本次官方规范核验](references/standards-review.md)列明来源与快照版本。
+版本2.1.3。采用[MIT许可证](LICENSE)，第三方与历史素材的范围见[许可说明](THIRD_PARTY.md)。[本次官方规范核验](references/standards-review.md)列明来源与快照版本。
 当前OpenAI文档列出的本地目录为~/.agents/skills及项目.agents/skills。旧版本或宿主可能有其他目录，按该工具实际技能列表确认，避免安装同名副本。此电脑已有的发现目录不在此次更新中迁移。
 使用本技能无需安装Python依赖；维护校验才需要：先运行`python -m pip install -r requirements-dev.txt`，再运行`python -X utf8 scripts/validate_package.py`。GitHub检查配置已附带，但只有提交仓库并实际跑完后才可称CI通过。
 [行为评估用例](evals/README.md)独立于文件校验，目前尚未完成独立模型实测。不把手写演示或结构通过称为成功案例。

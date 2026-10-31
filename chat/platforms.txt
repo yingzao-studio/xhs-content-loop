@@ -1,0 +1,4 @@
+豆包、DeepSeek、ChatGPT普通对话：复制skill.txt全文；界面接受TXT附件时可上传，再发送start.txt。外链打不开就直接粘贴，不宣称安装成功。
+DeepSeek Harness：同名目录置于项目.dsh/skills下，入口保持SKILL.md，不多套目录。
+ChatGPT原生Skills：仅限当前账号实际有Skills上传入口；导入仍须平台扫描，未完成扫描不可声称可用。
+豆包原生技能导入：本次官方格式与账号内导入未验证；普通文件/云盘上传不等于原生安装。

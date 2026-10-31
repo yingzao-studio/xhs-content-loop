@@ -44,3 +44,11 @@
 首次仅根据实际取得的资料说明：当前是聊天文本方式还是原生目录方式、读到了哪些资料、缺哪些能力。不要在普通聊天声称“已永久安装”，不要为了展示成功而编工具调用。
 没有联网则保留动态事实待核验；没有文件工具则在回复中提供成果和接力摘要；没有账号权限则只给草稿。不另装插件、不运行额外脚本、不发布内容来证明加载。
 结构和导出完整性已在本地校验，客户端操作与模型业务效果尚未实测。ChatGPT等其他聊天宿主也可按实际能力使用此文本模式，但不把它列为本次新增实测。
+
+## ChatGPT补充核验 · 2026-10-31
+
+官方文件上传帮助明确列出TXT，并说明普通文件上传受套餐、工作区设置、地区、客户端和模型影响。普通对话可提供本包skill.txt作为资料，再发送chat/start.txt；这不是安装，也不承诺跨会话永久生效。
+官方Skills帮助将原生技能说明为符合资格的Business、Enterprise、Healthcare、Edu用户等，且受工作区设置与产品可用性影响。存在入口时可按侧栏Plugins→Skills→Create→Upload from your computer上传技能包；需通过平台扫描，不能用本地格式校验代替平台扫描成功。入口不存在时使用TXT，不要求用户升级或开通付费服务。
+原生包沿用单个同名顶层目录、SKILL.md和references，agents/openai.yaml仅为OpenAI宿主元数据。未在用户当前ChatGPT账号上传或扫描，不能标为该账号安装成功。
+
+依据：[ChatGPT文件上传官方帮助](https://help.openai.com/en/articles/8555545-uploading-files-and-audio-to-chatgpt)、[ChatGPT技能官方帮助](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)、[技能编写官方文档](https://learn.chatgpt.com/docs/build-skills)。以上均于本次任务真实打开，不以API文档代替网页端可用性。
