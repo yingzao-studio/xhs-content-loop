@@ -8,7 +8,7 @@ front,content=body.split('---',2)[1:]
 meta=yaml.safe_load(front)
 assert re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*',meta['name']) and len(meta['name'])<=64
 assert meta['name']==root.name and 0<len(meta['description'])<=1024
-assert meta['license']=='MIT' and meta['metadata']['version']=='2.1.0'
+assert meta['license']=='MIT' and meta['metadata']['version']=='2.1.1'
 assert len(body.splitlines())<500
 assert 'MIT License' in (root/'LICENSE').read_text(encoding='utf-8')
 assert all(isinstance(k,str) and isinstance(v,str) for k,v in meta['metadata'].items())
