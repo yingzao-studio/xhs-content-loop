@@ -1,17 +1,31 @@
-以下为完整技能指令，按当前任务读取相关部分；维护文档无需默认加载。
+<<<SKILL-PACK-BEGIN xhs-content-loop version=2.1.2>>>
+本文件为普通聊天模式的完整技能指令，不是MCP服务，也不代表已永久安装。
+文中的references等相对路径，对应本文件RESOURCE标记章节；按需使用已提供的正文，不要因无法访问本地路径而假装缺少这些内嵌资料。
+只有实际读到全部所需资料才执行对应阶段。链接抓取、附件解析或全文读取失败时如实报告，不能仅见标题/首尾标记就声称已经完整加载。
+本环境能力由当前宿主决定，不能把技能目录支持等同于普通聊天支持。输出先给用户可用成果，再附必要来源与缺口。
 
-===== SKILL.md =====
+资源索引：
+- SKILL.md
+- references/agent-adaptation.md
+- references/platform-compatibility.md
+- references/prompt-template.md
+- references/shared-contract.md
+- references/standards-review.md
+- references/workflow.md
+
+
+<<<RESOURCE SKILL.md>>>
 ---
 name: xhs-content-loop
 description: 将已有素材整理成7天小红书选题和首篇图文草稿，并支持后续数据复盘。用于素材盘点、内容排期和持续运营；单篇参考拆解优先用xhs-viral-replica。不因制作内容而授权发布。 Organize existing assets into a RED content plan.
 license: MIT
 metadata:
   author: "yingzao-studio"
-  version: "2.1.1"
+  version: "2.1.2"
   standards-reviewed: "2026-10-31"
 ---
 
-## 第一次使用（v2.1.1）
+## 第一次使用（v2.1.2）
 
 适合：手里已有文档、照片、视频或零散文案，希望整理成一周内容的个人创作者、小商家和运营人员。
 最少输入：一个主题或品类，以及一份可读取的文字/图片材料。目标读者和目标可以暂不确定，由资料提出待确认方向。
@@ -66,8 +80,13 @@ metadata:
 只读取当前阶段需要的参考，不自动加载整套资料或通用提示词。通用提示词仅供不支持技能文件的宿主使用。用户只要求审查或修改技能时，不启动业务任务。
 每个选题标明已具备素材和待补拍项，首篇成稿须与同一事实卡对应。无法取得参考时优先完成用户资料支持的内容，不因联网失败停止全部制作。
 
+## 豆包与DeepSeek接入
 
-===== references/agent-adaptation.md =====
+在豆包、DeepSeek普通聊天或DeepSeek Harness中首次使用时，按需读 [平台接入核验](references/platform-compatibility.md)。聊天单文件方式使用本文件内嵌的RESOURCE章节，不要求访问不存在的本地路径；原生目录方式保留本目录的相对资源。先按实际能力说明缺口，不声称未经验证的安装成功。
+
+<<<END-RESOURCE SKILL.md>>>
+
+<<<RESOURCE references/agent-adaptation.md>>>
 # 跨 Agent 运行适配
 
 适用于能读取 Markdown 指令的 Agent。能力由当前宿主提供，本技能不自带登录状态、连接器、图片模型或定时任务。不得宣称已经在未测试的平台验证通过。
@@ -110,8 +129,59 @@ xhs-content-loop 负责素材、选题、制作、发布准备与复盘；xhs-vi
 
 联用交接必须遵循 [共用记录与交接](shared-contract.md)，不要求安装另一个技能。
 
+<<<END-RESOURCE references/agent-adaptation.md>>>
 
-===== references/prompt-template.md =====
+<<<RESOURCE references/platform-compatibility.md>>>
+# 豆包与DeepSeek接入核验 · 2026-10-31
+
+## 核对结果与适用范围
+
+|入口|本次可以确认|本包处理|尚未验证|
+|---|---|---|---|
+|豆包普通对话/云盘|官方说明支持上传文件，云盘支持文件夹|提供UTF-8单文件skill.txt和启动语；不依赖模型自动读取本地目录|具体账号的TXT解析、全文读取和执行效果|
+|豆包工作/上传技能|本次官方工作页未能访问；未取得可核验的导入格式说明|保留标准SKILL.md目录作为候选；没有入口则用单文件|原生导入、YAML字段接受范围、是否挂载成功|
+|DeepSeek普通聊天|官方隐私政策明确存在文本、文件等对话输入|提供完整单文件，外链读取失败时粘贴全文；不叫原生安装|账号当前支持的附件类型、URL抓取和全文执行|
+|DeepSeek Harness|官方文档接受<name>/SKILL.md，只扫描一层技能入口|使用同名顶层目录；项目可放.dsh/skills/<name>/SKILL.md，references随目录保留|本机客户端实际发现、加载和业务工具执行|
+
+## 官方依据
+
+- [豆包云盘使用须知](https://www.doubao.com/legal/ai_space)，第1.1与1.2条：文件/文件夹上传。文件夹存储不等于安装技能。
+- [DeepSeek隐私政策](https://cdn.deepseek.com/policies/zh-CN/deepseek-privacy-policy.html)，智能对话部分：文本、图片、文件等输入；不是文件扩展名或大小限制说明。
+- [DeepSeek Harness技能文档固定快照](https://github.com/deepseek-ai/deepseek-harness/blob/ce7073d51254c26cd63b22a60835b8f948deb447/docs/subsystems/skills.md)，Local discovery priority与Skill identity：项目.dsh/skills、.agents/skills，目录入口不递归扫描。
+- [Harness官网](https://www.deepseek.com/en/harness/)：它是独立Harness产品，不能把其目录规则套到普通聊天网站。
+- [豆包工作页](https://www.doubao.com/work)：本次访问失败，仅记录入口，不能据此确认导入操作。
+
+未采用第三方教程冒充官方格式要求；未推测当前文件大小、数量或上下文上限。
+
+## 单文件聊天方式
+
+打开skill.txt或chat/skill.txt，把全文粘贴到对话；界面支持该类型附件时也可上传。再发chat/start.txt中的启动语。文件带资源索引与首尾标记；Markdown中的references路径可对应本文件内RESOURCE章节，不要求普通聊天访问本地文件。
+模型只拿到链接但无法读取时，不得声称加载成功。若正文被截断，请分段提供，并在完整资料到齐后再执行。末尾标记是完整性提示，不是模型理解或行为正确的证明。
+
+## 原生目录方式
+
+解压folder包后，最外层就是技能同名目录。Harness项目布局示例：
+
+```text
+项目目录/
+  .dsh/
+    skills/
+      xhs-content-loop/
+        SKILL.md
+        references/
+```
+
+不要再套一层“下载包/技能合集/技能名”后直接放进技能根目录。其他同名技能可能覆盖发现结果，先核对客户端列表与实际路径；本包不会自动移动用户目录。
+
+## 验收与降级
+
+首次仅根据实际取得的资料说明：当前是聊天文本方式还是原生目录方式、读到了哪些资料、缺哪些能力。不要在普通聊天声称“已永久安装”，不要为了展示成功而编工具调用。
+没有联网则保留动态事实待核验；没有文件工具则在回复中提供成果和接力摘要；没有账号权限则只给草稿。不另装插件、不运行额外脚本、不发布内容来证明加载。
+结构和导出完整性已在本地校验，客户端操作与模型业务效果尚未实测。ChatGPT等其他聊天宿主也可按实际能力使用此文本模式，但不把它列为本次新增实测。
+
+<<<END-RESOURCE references/platform-compatibility.md>>>
+
+<<<RESOURCE references/prompt-template.md>>>
 # 简短调用
 
 使用 xhs-content-loop，盘点我上传的资料，给7天选题并完成首篇图文草稿。资料不足最多先问三个关键问题；不编体验或数据，只制作草稿，不发布。
@@ -120,8 +190,9 @@ xhs-content-loop 负责素材、选题、制作、发布准备与复盘；xhs-vi
 
 缺少全部素材时先给具体补充清单与暂定框架；缺体验就写选购/计划稿；无联网只分析实际可读材料，注明未核验当前热度。
 
+<<<END-RESOURCE references/prompt-template.md>>>
 
-===== references/shared-contract.md =====
+<<<RESOURCE references/shared-contract.md>>>
 # 共用记录与交接（schema_version: 1）
 
 两个包各自附本协议，允许单独安装。联用在同一项目维护一份工作记录，不复制成两套；不依赖后台多Agent。
@@ -149,8 +220,28 @@ xhs-content-loop 负责素材、选题、制作、发布准备与复盘；xhs-vi
 
 最终交付：可读成稿（含标题、封面字、正文和标签）→逐图制作稿→计划（若任务需要）→简短拆解与来源/待补项→接力记录。内部编号不硬塞进买家可见正文；演示标识与重要事实限制不得删去。
 
+<<<END-RESOURCE references/shared-contract.md>>>
 
-===== references/workflow.md =====
+<<<RESOURCE references/standards-review.md>>>
+# 规范与模板核验 · 2026-10-31
+
+这是维护记录，不是业务政策来源。没有名为“GitHub Skill标准”的独立强制认证；本包以Agent Skills开放规范为基础，按宿主能力适配。
+
+- [Agent Skills规范](https://agentskills.io/specification)：必需name和description，目录名匹配；license、metadata等为可选。建议入口少于500行、详细资料按需读取。
+- [官方参考实现](https://github.com/agentskills/agentskills/tree/69ef37e9424c0a7ea9dd2293b559e43ec8176379/skills-ref)：本轮固定此提交检查。上游说明此库用于演示，不能把通过验证称为认证或生产可靠性保证。
+- [Anthropic模板](https://github.com/anthropics/skills/blob/ca45fc496a3436251f191354091d557da31c15b5/template/SKILL.md)：只提供name、description和正文骨架，不提供效果保证。
+- [Anthropic编写建议](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)：简洁、按需加载、用真实任务评估。
+- [OpenAI当前技能文档](https://learn.chatgpt.com/docs/build-skills)：当前本地用户目录为~/.agents/skills，仓库目录为.agents/skills；分发可复用技能建议打包插件。
+- [旧OpenAI技能仓库](https://github.com/openai/skills)：本次打开时已标弃用并指向openai/plugins，不把旧目录当最新模板。
+- [OpenAI插件示例](https://github.com/openai/plugins/tree/0722921d5542fc593105c27bd52630babd8b8c2a)：独立发布层，不是修改SKILL.md就等于已进入插件目录。
+- [GitHub主题标签](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)：可帮助按主题发现仓库，不承诺搜索排名或访问增长。
+- [MIT许可说明与文本](https://choosealicense.com/licenses/mit/)：经所有者本次授权选择MIT；标准文本见LICENSE。
+
+快照只表示以上日期真实取得的资料。宿主功能、规范与入口可能改变，下次发布时重查；不把抓取时间当规范版本号。
+
+<<<END-RESOURCE references/standards-review.md>>>
+
+<<<RESOURCE references/workflow.md>>>
 # 执行规范与记录字段
 
 ## 素材账本
@@ -187,3 +278,7 @@ note_001/ 中保存 copy.md（标题、正文、标签与行动引导）、story
 - 下一轮实验与本轮证据有关联。
 
 联用时素材账本和事实卡以 [共用记录](shared-contract.md) 为准；manifest增加shared_record路径，保留已有字段。
+
+<<<END-RESOURCE references/workflow.md>>>
+
+<<<SKILL-PACK-END xhs-content-loop version=2.1.2>>>
